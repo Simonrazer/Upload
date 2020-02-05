@@ -69,6 +69,7 @@ class MyRoom extends colyseus_1.Room {
     }
     onCreate(options) {
         console.log("StateHandlerRoom created!", options);
+        this.setPatchRate(10);
         this.setState(new State());
     }
     onJoin(client) {
