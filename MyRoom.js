@@ -64,6 +64,15 @@ class State extends schema_1.Schema {
         if (movement.z) {
             this.players[id].z = movement.z;
         }
+        if (movement.mx) {
+            this.players[id].mx = movement.mx;
+        }
+        if (movement.my) {
+            this.players[id].my = movement.my;
+        }
+        if (movement.mz) {
+            this.players[id].mz = movement.mz;
+        }
     }
 }
 __decorate([
