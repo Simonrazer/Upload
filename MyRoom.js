@@ -14,6 +14,9 @@ class Player extends schema_1.Schema {
         this.x = 0;
         this.y = 0;
         this.z = 0;
+        this.mx = 0;
+        this.my = 0;
+        this.mz = 0;
     }
 }
 __decorate([
@@ -25,6 +28,15 @@ __decorate([
 __decorate([
     schema_1.type("number")
 ], Player.prototype, "z", void 0);
+__decorate([
+    schema_1.type("number")
+], Player.prototype, "mx", void 0);
+__decorate([
+    schema_1.type("number")
+], Player.prototype, "my", void 0);
+__decorate([
+    schema_1.type("number")
+], Player.prototype, "mz", void 0);
 exports.Player = Player;
 class State extends schema_1.Schema {
     constructor() {
