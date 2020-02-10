@@ -17,6 +17,7 @@ class Player extends schema_1.Schema {
         this.mx = 0;
         this.my = 0;
         this.mz = 0;
+        this.msg = "nix";
     }
 }
 __decorate([
@@ -37,6 +38,9 @@ __decorate([
 __decorate([
     schema_1.type("number")
 ], Player.prototype, "mz", void 0);
+__decorate([
+    schema_1.type("string")
+], Player.prototype, "msg", void 0);
 exports.Player = Player;
 class State extends schema_1.Schema {
     constructor() {
@@ -74,6 +78,9 @@ class State extends schema_1.Schema {
             this.players[id].mz = movement.mz;
         }
     }
+    getMessage(id, data) {
+        this.players[id].msg = data.msg;
+    }
 }
 __decorate([
     schema_1.type({ map: Player })
@@ -102,6 +109,7 @@ class MyRoom extends colyseus_1.Room {
     onMessage(client, data) {
         //console.log("StateHandlerRoom received message from", client.sessionId, ":", this.state.players[client.sessionId].x);
         this.state.movePlayer(client.sessionId, data);
+        this.state.getMessage(client.sessionId, data);
     }
     onDispose() {
         console.log("Dispose StateHandlerRoom");
